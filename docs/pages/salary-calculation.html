@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>給料計算 - SWAMP店内業務システム</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/mockup.css">
+  <link rel="stylesheet" href="style.css">
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar"></aside>
+    <div class="main-wrapper">
+      <header class="header" data-title="給料計算" data-tag="2026年5月"></header>
+      <main class="main-content">
+        <div class="page-header">
+          <h1 class="page-title">給料計算</h1>
+          <p class="page-subtitle">2026年5月分 給与・報酬の確認</p>
+        </div>
+        <div class="card section-gap filter-card">
+          <div class="filter-row">
+            <span class="filter-row-label">対象月</span>
+            <div class="date-nav">
+              <button type="button" class="btn btn-secondary btn-sm" id="prev-month">前月</button>
+              <span class="date-nav-label" id="month-label">2026年5月</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="this-month-btn">今月</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="next-month">翌月</button>
+            </div>
+          </div>
+        </div>
+        <div class="grid-4 section-gap">
+          <div class="kpi-card kpi-accent"><div class="kpi-label">給与総額</div><div class="kpi-value">&yen;4,280,000</div><div class="kpi-trend">支給予定総額</div></div>
+          <div class="kpi-card"><div class="kpi-label">ホスト給与合計</div><div class="kpi-value">&yen;3,520,000</div><div class="kpi-trend">歩合・バック含む</div></div>
+          <div class="kpi-card"><div class="kpi-label">内勤給与合計</div><div class="kpi-value">&yen;760,000</div><div class="kpi-trend">手当含む</div></div>
+          <div class="kpi-card kpi-card--warning"><div class="kpi-label">未支払人数</div><div class="kpi-value">3名</div><div class="kpi-trend">確認待ち</div></div>
+        </div>
+        <div class="btn-group section-gap">
+          <span class="btn btn-secondary btn-tab--active" data-tab="host">ホスト報酬</span>
+          <span class="btn btn-secondary" data-tab="staff">内勤スタッフ給与</span>
+        </div>
+        <div class="card section-gap" id="tab-host">
+          <div class="card-header"><span class="card-title">ホスト報酬</span><div style="display:flex;align-items:center;gap:8px;margin-left:auto"><span class="note-sample-data">売上歩合・指名バック適用</span></div></div>
+          <div class="table-wrapper">
+            <table class="table">
+              <thead><tr><th>ホスト名</th><th>役職</th><th>差引支給予定額</th><th>基本給</th><th>歩合総計</th><th>売上バック</th><th>同伴バック</th><th>その他</th><th>控除総計</th><th>ステータス</th></tr></thead>
+              <tbody id="host-salary-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card" id="tab-staff" style="display:none">
+          <div class="card-header"><span class="card-title">内勤スタッフ給与</span><div style="display:flex;align-items:center;gap:8px;margin-left:auto"><span class="note-sample-data">基本給・手当計算</span></div></div>
+          <div class="table-wrapper">
+            <table class="table">
+              <thead><tr><th>氏名</th><th>役職</th><th>差引支給予定額</th><th>基本給</th><th>手当</th><th>控除</th><th>ステータス</th></tr></thead>
+              <tbody id="staff-salary-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/mock/hosts.js"></script>
+  <script src="../assets/mock/staff.js"></script>
+  <script src="../assets/mock/salary.js"></script>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+  <script src="../assets/js/shared-layout.js"></script>
+  <script src="salary-calculation.js"></script>
+</body>
+</html>

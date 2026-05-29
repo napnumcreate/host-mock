@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注文管理 - SWAMP店内業務システム</title>
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/mockup.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="mobile-shell mobile-shell--staff">
+    <header class="mobile-header" data-title="注文管理" data-tag-class="tag" data-tag-text="A-01"></header>
+    <main class="mobile-body">
+      <section class="mobile-section" aria-label="席一覧">
+        <h2 class="mobile-section-title">席一覧</h2>
+        <article class="mobile-card" data-modal-trigger data-modal-title="A-01 注文登録" style="cursor:pointer;">
+          <div class="mobile-list-title"><span>A-01</span></div>
+          <p class="mobile-list-meta">担当ホスト：瑞樹成瀬</p>
+        </article>
+        <article class="mobile-card" data-modal-trigger data-modal-title="A-02 注文登録" style="cursor:pointer;">
+          <div class="mobile-list-title"><span>A-02</span></div>
+          <p class="mobile-list-meta">担当ホスト：鳳條隼人</p>
+        </article>
+        <article class="mobile-card" data-modal-trigger data-modal-title="B-01 注文登録" style="cursor:pointer;">
+          <div class="mobile-list-title"><span>B-01</span></div>
+          <p class="mobile-list-meta">担当ホスト：海堂しんのすけ</p>
+        </article>
+        <article class="mobile-card" data-modal-trigger data-modal-title="VIP-01 注文登録" style="cursor:pointer;">
+          <div class="mobile-list-title"><span>VIP-01</span></div>
+          <p class="mobile-list-meta">担当ホスト：戦神</p>
+        </article>
+      </section>
+
+    </main>
+    <div class="mobile-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="mobile-modal">
+        <div class="mobile-modal-header">
+          <h2 class="mobile-modal-title" id="modal-title"></h2>
+          <button class="mobile-modal-close" aria-label="閉じる">&times;</button>
+        </div>
+        <div class="mobile-modal-body">
+          <div class="mobile-btn-row" style="margin-bottom: var(--space-4);">
+            <button type="button" class="btn btn-primary order-cat-btn" data-category="bottle">ボトル</button>
+            <button type="button" class="btn btn-secondary order-cat-btn" data-category="can">缶物</button>
+            <button type="button" class="btn btn-secondary order-cat-btn" data-category="food">フード</button>
+          </div>
+          <article class="mobile-card">
+            <div class="mobile-list-item" data-category="bottle" data-item="ドンペリ" data-price="35000">
+              <div class="mobile-status-row">
+                <div><strong>ドンペリ</strong><p class="mobile-list-meta">&yen;35,000</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="bottle" data-item="ジャックダニエル" data-price="8000">
+              <div class="mobile-status-row">
+                <div><strong>ジャックダニエル</strong><p class="mobile-list-meta">&yen;8,000</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="bottle" data-item="ヘネシーVSOP" data-price="42000">
+              <div class="mobile-status-row">
+                <div><strong>ヘネシーVSOP</strong><p class="mobile-list-meta">&yen;42,000</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="bottle" data-item="シャトーマルゴー" data-price="28000">
+              <div class="mobile-status-row">
+                <div><strong>シャトーマルゴー</strong><p class="mobile-list-meta">&yen;28,000</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="can" data-item="プレミアムモルツ" data-price="800">
+              <div class="mobile-status-row">
+                <div><strong>プレミアムモルツ</strong><p class="mobile-list-meta">&yen;800</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="can" data-item="ハイボール" data-price="700">
+              <div class="mobile-status-row">
+                <div><strong>ハイボール</strong><p class="mobile-list-meta">&yen;700</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="can" data-item="レモンサワー" data-price="700">
+              <div class="mobile-status-row">
+                <div><strong>レモンサワー</strong><p class="mobile-list-meta">&yen;700</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="can" data-item="ノンアルコール" data-price="600">
+              <div class="mobile-status-row">
+                <div><strong>ノンアルコール</strong><p class="mobile-list-meta">&yen;600</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="food" data-item="フルーツ盛り合わせ" data-price="3500">
+              <div class="mobile-status-row">
+                <div><strong>フルーツ盛り合わせ</strong><p class="mobile-list-meta">&yen;3,500</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="food" data-item="おつまみセット" data-price="1500">
+              <div class="mobile-status-row">
+                <div><strong>おつまみセット</strong><p class="mobile-list-meta">&yen;1,500</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+            <div class="mobile-list-item" data-category="food" data-item="チョコレートプレート" data-price="2000">
+              <div class="mobile-status-row">
+                <div><strong>チョコレートプレート</strong><p class="mobile-list-meta">&yen;2,000</p></div>
+                <div class="qty-ctrl" style="display:flex; align-items:center; gap:var(--space-2);">
+                  <button type="button" class="btn btn-secondary btn-sm qty-minus">－</button>
+                  <span class="qty-val" style="min-width:1.5em; text-align:center;">0</span>
+                  <button type="button" class="btn btn-primary btn-sm qty-plus">＋</button>
+                </div>
+              </div>
+            </div>
+          </article>
+          <div id="order-cart" style="display:none; margin-top:var(--space-3);">
+            <article class="mobile-card">
+              <div id="cart-lines"></div>
+              <div class="mobile-status-row" style="padding-top:var(--space-2); border-top:1px solid #e5e7eb; margin-top:var(--space-2);">
+                <strong>合計</strong>
+                <strong id="cart-total" style="color:var(--color-accent);">¥0</strong>
+              </div>
+            </article>
+          </div>
+          <div class="mobile-btn-row" style="margin-top: var(--space-4);">
+            <a href="#" class="btn btn-primary">注文確定</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="mobile-bottom-nav" aria-label="メインナビゲーション"></nav>
+  </div>
+  <script src="../assets/js/mobile-modal.js"></script>
+  <script src="../assets/js/shared-mobile-layout.js"></script>
+  <script type="module">
+    import { requireAuth } from '../../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+  <script src="order.js"></script>
+</body>
+</html>

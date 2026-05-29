@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勤怠管理 - SWAMP店舗業務システム</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/mockup.css">
+  <link rel="stylesheet" href="style.css">
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar"></aside>
+    <div class="main-wrapper">
+      <header class="header" data-title="勤怠管理" data-tag="本日"></header>
+      <main class="main-content">
+        <div class="page-header">
+          <h1 class="page-title">勤怠管理</h1>
+        </div>
+        <div class="card section-gap">
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;">
+            <h2 class="section-title">月次勤怠一覧</h2>
+            <span>2026年5月</span>
+          </div>
+          <div class="monthly-table-scroll">
+            <table class="monthly-table" id="monthly-attendance-table">
+              <!-- JS が挿入 -->
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../assets/mock/hosts.js"></script>
+  <script src="../assets/mock/staff.js"></script>
+  <script src="../assets/mock/attendance.js"></script>
+  <script src="attendance.js"></script>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+  <script src="../assets/js/shared-layout.js"></script>
+</body>
+</html>

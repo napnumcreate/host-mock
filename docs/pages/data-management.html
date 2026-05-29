@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>データ管理 - SWAMP店内業務システム</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/mockup.css">
+  <link rel="stylesheet" href="style.css">
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar"></aside>
+    <div class="main-wrapper">
+      <header class="header" data-title="データ管理" data-tag="システム管理"></header>
+      <main class="main-content">
+        <div class="page-header"><h1 class="page-title">データ管理</h1></div>
+        <div class="card section-gap">
+          <div class="table-wrapper">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>データ種別</th>
+                  <th>件数</th>
+                  <th>最終バックアップ日時</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cell-strong">ホストデータ</td>
+                  <td>18件</td>
+                  <td>2026/05/27 23:00</td>
+                  <td>
+                    <div style="display:flex;gap:0.5rem;">
+                      <button type="button" class="btn btn-secondary btn-sm">詳細</button>
+                      <button type="button" class="btn btn-secondary btn-sm">エクスポート</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">顧客データ</td>
+                  <td>248件</td>
+                  <td>2026/05/27 23:00</td>
+                  <td>
+                    <div style="display:flex;gap:0.5rem;">
+                      <button type="button" class="btn btn-secondary btn-sm">詳細</button>
+                      <button type="button" class="btn btn-secondary btn-sm">エクスポート</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">売上データ</td>
+                  <td>1,240件</td>
+                  <td>2026/05/27 22:30</td>
+                  <td>
+                    <div style="display:flex;gap:0.5rem;">
+                      <button type="button" class="btn btn-secondary btn-sm">詳細</button>
+                      <button type="button" class="btn btn-secondary btn-sm">エクスポート</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">シフトデータ</td>
+                  <td>312件</td>
+                  <td>2026/05/26 23:00</td>
+                  <td>
+                    <div style="display:flex;gap:0.5rem;">
+                      <button type="button" class="btn btn-secondary btn-sm">詳細</button>
+                      <button type="button" class="btn btn-secondary btn-sm">エクスポート</button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="cell-strong">給与データ</td>
+                  <td>204件</td>
+                  <td>2026/05/25 23:00</td>
+                  <td>
+                    <div style="display:flex;gap:0.5rem;">
+                      <button type="button" class="btn btn-secondary btn-sm">詳細</button>
+                      <button type="button" class="btn btn-secondary btn-sm">エクスポート</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module">
+    import { requireAuth } from '../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+  <script src="../assets/js/shared-layout.js"></script>
+</body>
+</html>

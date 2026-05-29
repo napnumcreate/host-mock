@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>売上管理 - SWAMP店内業務システム</title>
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/mockup.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+  <style>
+    .mobile-section--chart {
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+
+    .sales-chart-panel--hidden {
+      display: none;
+    }
+
+    .sales-chart {
+      display: block;
+      width: 100%;
+      height: 220px;
+    }
+
+    .sales-chart-grid {
+      stroke: var(--color-border-light);
+      stroke-width: 1;
+    }
+
+    .sales-chart-axis,
+    .sales-chart-value {
+      fill: var(--color-text-muted);
+      font-size: 7px;
+      font-family: inherit;
+    }
+
+    .sales-chart-value {
+      fill: var(--color-text-secondary);
+      font-size: 6.5px;
+      text-anchor: middle;
+    }
+
+    .sales-chart-line {
+      fill: none;
+      stroke: #7C3AED;
+      stroke-width: 2;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+    }
+
+    .sales-chart-dot {
+      fill: #7C3AED;
+    }
+  </style>
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="mobile-shell mobile-shell--host">
+    <header class="mobile-header" data-title="売上管理" data-tag-class="tag" data-tag-text="本日"></header>
+
+    <main class="mobile-body">
+      <section class="mobile-section" aria-label="本日の売上">
+        <div class="mobile-tile-grid">
+          <div class="mobile-tile kpi-accent">
+            <div class="mobile-tile-value">&yen;185,000</div>
+            <div class="mobile-tile-label">本日売上</div>
+          </div>
+          <div class="mobile-tile">
+            <div class="mobile-tile-value">7名</div>
+            <div class="mobile-tile-label">担当客数</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mobile-section" aria-label="本日の詳細">
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">4件</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">フリー客数</span><span class="mobile-value">3名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">平均単価</span><span class="mobile-value">&yen;26,428</span></div>
+        </article>
+      </section>
+
+      <section class="mobile-section">
+        <div class="mobile-btn-row">
+          <button type="button" class="btn btn-primary" id="btn-today" data-period="today">本日</button>
+          <button type="button" class="btn btn-secondary" id="btn-week" data-period="week">今週</button>
+          <button type="button" class="btn btn-secondary" id="btn-month" data-period="month">今月</button>
+        </div>
+      </section>
+
+      <section class="mobile-section mobile-section--chart" aria-label="売上グラフ">
+        <div id="chart-today">
+          <svg class="sales-chart" viewBox="0 0 340 160" role="img" aria-label="本日の時間帯別売上グラフ">
+            <line class="sales-chart-grid" x1="42" y1="30" x2="330" y2="30"></line>
+            <line class="sales-chart-grid" x1="42" y1="59" x2="330" y2="59"></line>
+            <line class="sales-chart-grid" x1="42" y1="88" x2="330" y2="88"></line>
+            <line class="sales-chart-grid" x1="42" y1="116" x2="330" y2="116"></line>
+            <text class="sales-chart-axis" x="2" y="33">120,000</text>
+            <text class="sales-chart-axis" x="7" y="62">80,000</text>
+            <text class="sales-chart-axis" x="7" y="91">40,000</text>
+            <text class="sales-chart-axis" x="27" y="119">0</text>
+            <polyline class="sales-chart-line" points="61,116 97,103 133,86 169,69 205,48 241,30 277,53 313,79"></polyline>
+            <circle class="sales-chart-dot" cx="61" cy="116" r="3"></circle>
+            <circle class="sales-chart-dot" cx="97" cy="103" r="3"></circle>
+            <circle class="sales-chart-dot" cx="133" cy="86" r="3"></circle>
+            <circle class="sales-chart-dot" cx="169" cy="69" r="3"></circle>
+            <circle class="sales-chart-dot" cx="205" cy="48" r="3"></circle>
+            <circle class="sales-chart-dot" cx="241" cy="30" r="3"></circle>
+            <circle class="sales-chart-dot" cx="277" cy="53" r="3"></circle>
+            <circle class="sales-chart-dot" cx="313" cy="79" r="3"></circle>
+            <text class="sales-chart-value" x="97" y="98">18,000</text>
+            <text class="sales-chart-value" x="133" y="81">42,000</text>
+            <text class="sales-chart-value" x="169" y="64">65,000</text>
+            <text class="sales-chart-value" x="205" y="43">95,000</text>
+            <text class="sales-chart-value" x="241" y="25">120,000</text>
+            <text class="sales-chart-value" x="277" y="48">88,000</text>
+            <text class="sales-chart-value" x="313" y="74">52,000</text>
+            <text class="sales-chart-axis" x="55" y="132">18時</text>
+            <text class="sales-chart-axis" x="91" y="132">19時</text>
+            <text class="sales-chart-axis" x="127" y="132">20時</text>
+            <text class="sales-chart-axis" x="163" y="132">21時</text>
+            <text class="sales-chart-axis" x="199" y="132">22時</text>
+            <text class="sales-chart-axis" x="235" y="132">23時</text>
+            <text class="sales-chart-axis" x="272" y="132">0時</text>
+            <text class="sales-chart-axis" x="308" y="132">1時</text>
+          </svg>
+        </div>
+        <div class="sales-chart-panel--hidden" id="chart-week">
+          <svg class="sales-chart" viewBox="0 0 340 160" role="img" aria-label="今週の日別売上グラフ">
+            <line class="sales-chart-grid" x1="42" y1="30" x2="330" y2="30"></line>
+            <line class="sales-chart-grid" x1="42" y1="59" x2="330" y2="59"></line>
+            <line class="sales-chart-grid" x1="42" y1="88" x2="330" y2="88"></line>
+            <line class="sales-chart-grid" x1="42" y1="116" x2="330" y2="116"></line>
+            <text class="sales-chart-axis" x="2" y="33">210,000</text>
+            <text class="sales-chart-axis" x="2" y="62">140,000</text>
+            <text class="sales-chart-axis" x="7" y="91">70,000</text>
+            <text class="sales-chart-axis" x="27" y="119">0</text>
+            <polyline class="sales-chart-line" points="66,116 107,50 148,30 189,40 230,77 271,46 312,57"></polyline>
+            <circle class="sales-chart-dot" cx="66" cy="116" r="3"></circle>
+            <circle class="sales-chart-dot" cx="107" cy="50" r="3"></circle>
+            <circle class="sales-chart-dot" cx="148" cy="30" r="3"></circle>
+            <circle class="sales-chart-dot" cx="189" cy="40" r="3"></circle>
+            <circle class="sales-chart-dot" cx="230" cy="77" r="3"></circle>
+            <circle class="sales-chart-dot" cx="271" cy="46" r="3"></circle>
+            <circle class="sales-chart-dot" cx="312" cy="57" r="3"></circle>
+            <text class="sales-chart-value" x="106.5" y="45">160,000</text>
+            <text class="sales-chart-value" x="147.5" y="25">210,000</text>
+            <text class="sales-chart-value" x="188.5" y="35">185,000</text>
+            <text class="sales-chart-value" x="229.5" y="72">95,000</text>
+            <text class="sales-chart-value" x="270.5" y="41">172,000</text>
+            <text class="sales-chart-value" x="311.5" y="52">145,000</text>
+            <text class="sales-chart-axis" x="56" y="132">5/21</text>
+            <text class="sales-chart-axis" x="97" y="132">5/22</text>
+            <text class="sales-chart-axis" x="138" y="132">5/23</text>
+            <text class="sales-chart-axis" x="179" y="132">5/24</text>
+            <text class="sales-chart-axis" x="220" y="132">5/25</text>
+            <text class="sales-chart-axis" x="261" y="132">5/26</text>
+            <text class="sales-chart-axis" x="302" y="132">5/27</text>
+          </svg>
+        </div>
+        <div class="sales-chart-panel--hidden" id="chart-month">
+          <svg class="sales-chart" viewBox="0 0 340 160" role="img" aria-label="今月の週別売上グラフ">
+            <line class="sales-chart-grid" x1="42" y1="30" x2="330" y2="30"></line>
+            <line class="sales-chart-grid" x1="42" y1="59" x2="330" y2="59"></line>
+            <line class="sales-chart-grid" x1="42" y1="88" x2="330" y2="88"></line>
+            <line class="sales-chart-grid" x1="42" y1="116" x2="330" y2="116"></line>
+            <text class="sales-chart-axis" x="2" y="33">600,000</text>
+            <text class="sales-chart-axis" x="2" y="62">400,000</text>
+            <text class="sales-chart-axis" x="2" y="91">200,000</text>
+            <text class="sales-chart-axis" x="27" y="119">0</text>
+            <polyline class="sales-chart-line" points="92,62 158,42 224,53 290,48"></polyline>
+            <circle class="sales-chart-dot" cx="92" cy="62" r="4"></circle>
+            <circle class="sales-chart-dot" cx="158" cy="42" r="4"></circle>
+            <circle class="sales-chart-dot" cx="224" cy="53" r="4"></circle>
+            <circle class="sales-chart-dot" cx="290" cy="48" r="4"></circle>
+            <text class="sales-chart-value" x="92" y="57">380,000</text>
+            <text class="sales-chart-value" x="158" y="37">520,000</text>
+            <text class="sales-chart-value" x="224" y="48">440,000</text>
+            <text class="sales-chart-value" x="290" y="43">480,000</text>
+            <text class="sales-chart-axis" x="80" y="132">1週目</text>
+            <text class="sales-chart-axis" x="146" y="132">2週目</text>
+            <text class="sales-chart-axis" x="212" y="132">3週目</text>
+            <text class="sales-chart-axis" x="278" y="132">4週目</text>
+          </svg>
+        </div>
+      </section>
+
+      <section class="mobile-section">
+        <h2 class="mobile-section-title">売上履歴</h2>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/24 (日)</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;185,000</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">7名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">4件</span></div>
+        </article>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/23 (土)</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;210,000</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">9名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">5件</span></div>
+        </article>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/22 (金)</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;160,000</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">6名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">3件</span></div>
+        </article>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/21 (木) <span class="badge badge-neutral">欠勤</span></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;0</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">0名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">0件</span></div>
+        </article>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/20 (水)</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;145,000</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">6名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">3件</span></div>
+        </article>
+        <article class="mobile-card">
+          <div class="mobile-key-value"><span class="mobile-key">日付</span><span class="mobile-value">2026/05/19 (火)</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">売上</span><span class="mobile-value">&yen;172,000</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当客数</span><span class="mobile-value">7名</span></div>
+          <div class="mobile-key-value"><span class="mobile-key">本指名数</span><span class="mobile-value">4件</span></div>
+        </article>
+      </section>
+    </main>
+
+    <nav class="mobile-bottom-nav" aria-label="メインナビゲーション"></nav>
+  </div>
+  <script src="../assets/js/shared-mobile-layout.js"></script>
+  <script src="sales.js"></script>
+  <script type="module">
+    import { requireAuth } from '../../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+</body>
+</html>

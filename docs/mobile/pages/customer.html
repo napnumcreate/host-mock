@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>顧客管理 - SWAMP店内業務システム</title>
+  <link rel="stylesheet" href="../../assets/css/reset.css">
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/components.css">
+  <link rel="stylesheet" href="../../assets/css/mockup.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
+  <style>
+    #mobile-customer-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.45);
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+    }
+    .mcm-card {
+      width: 100%;
+      max-width: 420px;
+      max-height: 82vh;
+      overflow-y: auto;
+      background: var(--color-surface);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,0.18));
+    }
+    .mcm-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-4);
+    }
+    .mcm-title {
+      font-weight: 700;
+      font-size: var(--font-size-lg);
+    }
+  </style>
+  <style>body{visibility:hidden}</style>
+</head>
+<body>
+  <div class="mobile-shell mobile-shell--host">
+    <header class="mobile-header" data-title="顧客管理" data-tag-class="tag" data-tag-text="一覧"></header>
+
+    <main class="mobile-body">
+      <section class="mobile-section" aria-label="顧客検索">
+        <label class="mobile-form-label" for="customer-search">顧客名で検索</label>
+        <input class="mobile-input" id="customer-search" type="text" placeholder="顧客名で検索">
+      </section>
+
+      <section class="mobile-section">
+        <h2 class="mobile-section-title">担当顧客一覧</h2>
+        <div id="customer-list"></div>
+      </section>
+
+      <div id="mobile-customer-modal">
+        <div class="mcm-card">
+          <div class="mcm-header">
+            <span class="mcm-title">顧客詳細</span>
+            <button id="mcm-close" class="btn btn-ghost btn-sm" type="button">✕</button>
+          </div>
+          <div class="mobile-key-value"><span class="mobile-key">顧客名</span><span class="mobile-value" id="mcm-name"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">担当ホスト</span><span class="mobile-value" id="mcm-host"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">来店回数</span><span class="mobile-value" id="mcm-visit-count"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">平均来店頻度</span><span class="mobile-value" id="mcm-visit-freq"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">今月の売上</span><span class="mobile-value" id="mcm-monthly-sales"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">総売上</span><span class="mobile-value" id="mcm-total-sales"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">初来店日</span><span class="mobile-value" id="mcm-first-visit"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">初リピート日</span><span class="mobile-value" id="mcm-first-repeat"></span></div>
+          <div class="mobile-key-value"><span class="mobile-key">備考</span><span class="mobile-value" id="mcm-notes"></span></div>
+        </div>
+      </div>
+    </main>
+
+    <nav class="mobile-bottom-nav" aria-label="メインナビゲーション"></nav>
+  </div>
+  <script src="../assets/js/shared-mobile-layout.js"></script>
+  <script src="../../assets/mock/customer.js"></script>
+  <script src="customer-mobile.js"></script>
+  <script type="module">
+    import { requireAuth } from '../../assets/js/auth.js';
+    requireAuth('login.html');
+  </script>
+</body>
+</html>
