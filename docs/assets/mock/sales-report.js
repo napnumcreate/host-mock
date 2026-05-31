@@ -1,4 +1,4 @@
-﻿var TODAY_HOST_SALES = [
+var TODAY_HOST_SALES = [
   { hostId: 'ren',          sales: '¥186,000', guests: 1, nominations: 1, dohan: '田中 優子', after: '松本 葵'   },
   { hostId: 'kaito',          sales: '¥124,000', guests: 1, nominations: 0, dohan: '佐藤 美咲', after: '－'        },
   { hostId: 'hayato',              sales: '¥98,000',  guests: 1, nominations: 1, dohan: '鈴木 麻衣', after: '伊藤 沙織' },
@@ -6,15 +6,5 @@
   { hostId: 'sora',     sales: '¥65,000',  guests: 1, nominations: 0, dohan: '－',        after: '渡辺 留美' },
   { hostId: 'yuki',         sales: '¥52,000',  guests: 1, nominations: 1, dohan: '渡辺 留美', after: '－'        },
   { hostId: 'daiki',   sales: '¥45,000',  guests: 1, nominations: 1, dohan: '中村 彩花', after: '－'        },
-  { hostId: 'kenta',          sales: '¥38,000',  guests: 1, nominations: 1, dohan: '山本 京香', after: '－'        },
-  { hostId: 'ken', sales: '¥0',       guests: 0, nominations: 0, dohan: '吉田 真由', after: '－'        },
-  { hostId: 'jun',             sales: '¥0',       guests: 0, nominations: 0, dohan: '小林 里奈', after: '－'        },
-  { hostId: 'hiroki',              sales: '¥0',       guests: 0, nominations: 0, dohan: '－',        after: '清水 恵美' },
-  { hostId: 'shota',          sales: '¥0',       guests: 0, nominations: 0, dohan: '加藤 遥',   after: '－'        },
-  { hostId: 'tatsuya',          sales: '¥0',       guests: 0, nominations: 0, dohan: '－',        after: '井上 理沙' },
-  { hostId: 'daisuke',              sales: '¥0',       guests: 0, nominations: 0, dohan: '木村 千尋', after: '－'        },
-  { hostId: 'kenji',   sales: '¥0',       guests: 0, nominations: 0, dohan: '－',        after: '－'        },
-  { hostId: 'tomoya',           sales: '¥0',       guests: 0, nominations: 0, dohan: '清水 恵美', after: '－'        },
-  { hostId: 'masato',              sales: '¥0',       guests: 0, nominations: 0, dohan: '－',        after: '－'        },
-  { hostId: 'shingo',            sales: '¥0',       guests: 0, nominations: 0, dohan: '－',        after: '－'        }
+  { hostId: 'kenta',          sales: '¥38,000',  guests: 1, nominations: 1, dohan: '山本 京香', after: '－'        }
 ];

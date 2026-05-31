@@ -79,7 +79,7 @@ codex exec --skip-git-repo-check -s workspace-write "$(cat .codex-prompt.tmp.md)
 
 - `--skip-git-repo-check`: so that the run does not fail in a non-Git template workspace.
 - `-s workspace-write`: so that Codex can write to the target files.
-- Run this via the Bash tool. For PowerShell, replace `"$(cat .codex-prompt.tmp.md)"` with `(Get-Content -Raw .codex-prompt.tmp.md)`.
+- **Always use the Bash tool** (not the PowerShell tool) for this command. Using the PowerShell tool causes stdin to hang and garbled characters due to encoding differences. The Bash tool with `cat` handles UTF-8 correctly on this system.
 
 ### Step 5: Check `.codex-report.tmp.json`
 - Check `status` (completed / blocked / partial).
