@@ -17,7 +17,8 @@
       "PowerShell(codex exec --skip-git-repo-check -s workspace-write \\(Get-Content -Raw .codex-prompt.tmp.md\\))",
       "Bash(Get-ChildItem -Path \"C:\\\\VikitSystem_workspace\\\\genesis-mock\\\\docs\" -Recurse -Filter \"hosts.js\")",
       "Bash(Select-Object -First 1)",
-      "Bash(Get-Content)"
+      "Bash(Get-Content)",
+      "PowerShell($content = [System.IO.File]::ReadAllText\\(\"$PWD\\\\.codex-prompt.tmp.md\", [System.Text.Encoding]::UTF8\\); codex exec --skip-git-repo-check -s workspace-write $content)"
     ]
   }
 }
